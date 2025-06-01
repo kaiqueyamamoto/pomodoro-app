@@ -663,6 +663,7 @@ export function PomodoroTimer() {
   }
 
   const getInsights = () => {
+    if (typeof window === 'undefined') return [];
     const sessions = JSON.parse(localStorage.getItem(STORAGE_KEYS.SESSIONS) || "[]")
     const focusSessions = sessions.filter((s: Session) => s.type === "focus" && s.completed)
 
